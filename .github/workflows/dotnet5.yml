@@ -33,7 +33,7 @@ jobs:
         with:
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
-          password: ${{ secrets.REMOTE_PWD }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }} 
           port: 22
           local: ./deploy/
           remote: /home/project/example/
