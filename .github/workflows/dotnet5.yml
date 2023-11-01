@@ -1,4 +1,4 @@
-name: ASP.NET Core 7.0 - shing
+name: ASP.NET Core 7.0 Example build and deploy
 
 on:
   push:
@@ -26,10 +26,10 @@ jobs:
         run: dotnet restore
 
       - name: Build package
-        run: dotnet publish . -c Release -r linux-x64 --self-contained false -o deploy
+        run: dotnet publish ./src/example -c Release -r linux-x64 --self-contained false -o deploy
 
       - name: Upload package
-        uses: appleboy/ssh-action@v0.1.10
+        uses: garygrossgarten/github-action-scp@v0.7.3
         with:
 			host: ${{ secrets.REMOTE_HOST }}
 			username: ${{ secrets.REMOTE_USER }}
