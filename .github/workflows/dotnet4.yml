@@ -29,7 +29,11 @@ jobs:
         run: |
           cd github_actions
           dotnet build --configuration Release --no-restore
-          dotnet publish -c Release -r linux-x64 --self-contained false -o deploy                        
+          dotnet publish -c Release -r linux-x64 --self-contained false -o deploy  
+      - name: Debug
+        run: |
+          pwd  # 打印当前工作目录
+          ls   # 列出当前目录内容          
       - name: Upload package
         uses: appleboy/ssh-action@v0.1.10
         with:
