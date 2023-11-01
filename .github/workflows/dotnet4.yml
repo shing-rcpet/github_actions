@@ -26,7 +26,10 @@ jobs:
         run: dotnet restore
 
       - name: Build package
-        run: dotnet publish ../github_actions/ -c Release -r linux-x64 --self-contained false -o deploy
+        run: dotnet publish -c Release -r linux-x64 --self-contained false -o deploy
+        
+            #dotnet publish ../github_actions/ -c Release -r linux-x64 --self-contained false -o deploy
+        
 
       - name: Upload package
         uses: appleboy/ssh-action@v0.1.10
