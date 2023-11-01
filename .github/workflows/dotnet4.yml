@@ -40,4 +40,4 @@ jobs:
           script: |
             ls
             #cd /home/runner/work/github_actions/github_actions/github_actions/deploy/
-            #git pull
+            git pull
