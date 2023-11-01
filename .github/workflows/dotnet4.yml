@@ -29,7 +29,7 @@ jobs:
         run: dotnet publish  -c Release -r linux-x64 --self-contained false -o deploy
 
       - name: Upload package
-        uses: garygrossgarten/github-action-scp@v0.7.3
+        uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
