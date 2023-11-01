@@ -50,7 +50,8 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
-          script: |
+          script: |   
+            sudo apt-get install unzip
             cd /home/project/example/
             unzip deploy-package.zip
             #sudo systemctl stop your-app-service  # 停止应用程序服务（如果有）
