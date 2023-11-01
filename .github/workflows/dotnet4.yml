@@ -29,9 +29,9 @@ jobs:
         run: |
           cd github_actions
           dotnet build --configuration Release --no-restore
-          dotnet publish -c Release -r linux-x64 --self-contained false -o ./deploy                        
+          dotnet publish -c Release -r linux-x64 --self-contained false -o deploy                        
       - name: Create Deployment Package
-        run: zip -r deploy-package.zip ./deploy
+        run: zip -r deploy-package.zip deploy
   
       - name: Upload to Remote Server
         run: scp -i ${{ secrets.SSH_PRIVATE_KEY }} deploy-package.zip ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/project/example/          
