@@ -32,6 +32,7 @@ jobs:
           dotnet publish -c Release -r linux-x64 --self-contained false -o deploy  
       - name: Debug
         run: |
+          cd /home/runner/work/github_actions/github_actions/github_actions/
           pwd  # 打印当前工作目录
           ls   # 列出当前目录内容          
       - name: Upload package
