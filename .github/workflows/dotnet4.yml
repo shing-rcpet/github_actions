@@ -37,7 +37,6 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
-          run: |
+          script: |
               cd /home/runner/work/github_actions/github_actions/github_actions/deploy/
               scp -i private_key -P 22 -r ./ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/project/example/
-              shell: bash
