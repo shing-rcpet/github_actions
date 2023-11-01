@@ -42,4 +42,16 @@ jobs:
         run: |
           echo "${{secrets.SSH_PRIVATE_KEY}}" > private_key
           chmod 600 private_key
-          scp -o StrictHostKeyChecking=no -i private_key deploy-package.zip ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/project/example/          
+          scp -o StrictHostKeyChecking=no -i private_key deploy-package.zip ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/project/example/        
+      - name: SSH into Remote Server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            cd /home/project/example/
+            unzip deploy-package.zip
+            #sudo systemctl stop your-app-service  # 停止应用程序服务（如果有）
+            #sudo systemctl start your-app-service  # 启动应用程序服务（如果有）
