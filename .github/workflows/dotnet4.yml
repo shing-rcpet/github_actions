@@ -37,7 +37,7 @@ jobs:
           ls   # 列出当前目录内容     
       - name: Debug Information
         run: |
-          echo "SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}"
+          #echo "SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}"
           echo "Working Directory: $(pwd)"
           ls -la
           
@@ -50,6 +50,7 @@ jobs:
           port: 22
           script: |       
             echo "Working Directory: $(pwd)"
-            cd ./work/github_actions/github_actions/github_actions/deploy/
-            scp -i ${{ secrets.SSH_PRIVATE_KEY }} -P 22 -r ./ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/project/example/
+            ls -la
+            #cd ./work/github_actions/github_actions/github_actions/deploy/
+            #scp -i ${{ secrets.SSH_PRIVATE_KEY }} -P 22 -r ./ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/project/example/
 
