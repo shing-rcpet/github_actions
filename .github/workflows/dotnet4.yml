@@ -34,4 +34,4 @@ jobs:
         run: zip -r deploy-package.zip /home/runner/work/github_actions/github_actions/github_actions/deploy/
   
       - name: Upload to Remote Server
-        run: scp -i ${{ secrets.SSH_PRIVATE_KEY }} deploy-package.zip ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/project/example/          
+        run: scp -i ${{ secrets.SSH_PRIVATE_KEY }} /home/runner/work/github_actions/github_actions/github_actions/deploy/ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/project/example/          
