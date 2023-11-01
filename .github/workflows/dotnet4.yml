@@ -31,4 +31,4 @@ jobs:
           dotnet build --configuration Release --no-restore
           dotnet publish -c Release -r linux-x64 --self-contained false -o deploy                        
       - name: Upload package to remote server
-        run: scp -i ${{ secrets.SSH_PRIVATE_KEY }} -P 22 -r ./deploy/ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/project/example/
+        run: scp -i ${{ secrets.SSH_PRIVATE_KEY }} -P 22 -r /home/runner/work/github_actions/github_actions/github_actions/deploy/ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/project/example/
