@@ -39,5 +39,5 @@ jobs:
           port: 22
           script: |
             ls
-            cd /home/runner/work/github_actions/github_actions/github_actions/deploy/
-            git pull
+            #cd /home/runner/work/github_actions/github_actions/github_actions/deploy/
+            #git pull
