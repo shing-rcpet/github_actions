@@ -29,14 +29,9 @@ jobs:
         run: |
           cd github_actions
           dotnet build --configuration Release --no-restore
-          dotnet publish -c Release -r linux-x64 --self-contained false -o deploy                        
-          
-      - name: Upload package
-        uses: appleboy/ssh-action@v0.1.10
-        with:
-          host: ${{ secrets.REMOTE_HOST }}
-          username: ${{ secrets.REMOTE_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 22
-          source: /home/runner/work/github_actions/github_actions/github_actions/deploy/                    
-          target: /home/project/example/
+          dotnet publish -c Release -r linux-x64 --self-contained false -o ./deploy                        
+      - name: Create Deployment Package
+        run: zip -r deploy-package.zip ./deploy
+  
+      - name: Upload to Remote Server
+        run: scp -i ${{ secrets.SSH_PRIVATE_KEY }} deploy-package.zip ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/project/example/          
