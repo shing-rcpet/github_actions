@@ -36,5 +36,11 @@ jobs:
           pwd  # 打印当前工作目录
           ls   # 列出当前目录内容          
       - name: Upload package to remote server
-        run: |
-          scp -i ${{ secrets.SSH_PRIVATE_KEY }} -P 22 -r /home/runner/work/github_actions/github_actions/github_actions/deploy/ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/project/example/
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          local: deploy/                    
+          remote: /home/runner/work/github_actions/github_actions/github_actions/deploy/
