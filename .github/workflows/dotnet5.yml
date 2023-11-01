@@ -31,7 +31,7 @@ jobs:
       - name: Upload package
         uses: garygrossgarten/github-action-scp@v0.7.3
         with:
-          host: ${{ secrets.REMOTE_HOST }}
+          host: ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }} 
           port: 22
