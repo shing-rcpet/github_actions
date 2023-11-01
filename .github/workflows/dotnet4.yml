@@ -32,6 +32,11 @@ jobs:
           dotnet publish -c Release -r linux-x64 --self-contained false -o deploy                        
       - name: Create Deployment Package
         run: zip -r deploy-package.zip /home/runner/work/github_actions/github_actions/github_actions/deploy/
+
+      - name: Debug Info
+        run: |
+          pwd
+          ls -l
   
-      - name: Upload to Remote Server
-        run: scp -i ${{ secrets.SSH_PRIVATE_KEY }} ./deploy-package.zip ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/project/example/          
+      #- name: Upload to Remote Server
+      #  run: scp -i ${{ secrets.SSH_PRIVATE_KEY }} deploy-package.zip ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/project/example/          
