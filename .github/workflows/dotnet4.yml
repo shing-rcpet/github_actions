@@ -38,5 +38,5 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
-          local: ./deploy/
+          local: /home/runner/work/playground/example/deploy/
           remote: /home/project/example/
