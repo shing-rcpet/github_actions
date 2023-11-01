@@ -38,5 +38,8 @@ jobs:
           pwd
           ls -l
   
-      #- name: Upload to Remote Server
-      #  run: scp -i ${{ secrets.SSH_PRIVATE_KEY }} deploy-package.zip ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/project/example/          
+      - name: Upload to Remote Server
+        run: |
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key
+          chmod 600 private_key
+          scp -i private_key deploy-package.zip ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/project/example/          
