@@ -53,7 +53,10 @@ jobs:
           script: |   
             cd /home/project/example/
             unzip deploy-package.zip
+            rm -f -r deploy
+            mkdir deploy
             mv ./home/runner/work/github_actions/github_actions/github_actions/deploy/* ./deploy/
+            rm -f -r home
             # rm -f -r ./home/runner/work/github_actions/github_actions/github_actions/deploy/
             #sudo systemctl stop your-app-service  # 停止应用程序服务（如果有）
             #sudo systemctl start your-app-service  # 启动应用程序服务（如果有）
