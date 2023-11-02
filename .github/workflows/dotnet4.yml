@@ -62,7 +62,7 @@ jobs:
       - name: Restart dotnet-example.service
         uses: garygrossgarten/github-action-ssh@release
         with:
-          command: sudo systemctl stop github_actions.service;sudo systemctl start github_actions.service; cd /home/project/example/deploy; ls -l
+          command: sudo systemctl stop github_actions.service;sudo systemctl start github_actions.service;sudo systemctl status github_actions.service; cd /home/project/example/deploy; ls -l
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
           privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
