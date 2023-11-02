@@ -57,6 +57,9 @@ jobs:
             mkdir deploy
             mv ./home/runner/work/github_actions/github_actions/github_actions/deploy/* ./deploy/
             rm -f -r home
-            rm -f deploy-package.zip            
-            sudo systemctl stop github_actions.service  # 停止应用程序服务（如果有）
-            sudo systemctl start github_actions.service  # 启动应用程序服务（如果有）
+            rm -f deploy-package.zip
+            systemctl --user stop github_actions_actions.service
+            systemctl --user start github_actions_actions.service
+
+            #sudo systemctl stop github_actions.service  # 停止应用程序服务（如果有）
+            #sudo systemctl start github_actions.service  # 启动应用程序服务（如果有）
