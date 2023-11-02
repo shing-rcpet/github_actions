@@ -7,7 +7,7 @@ on:
   pull_request:
     branches:
       - main
-  workflow_dispatch:  # 添加workflow_dispatch事件以手動觸發
+  #workflow_dispatch:  # 添加workflow_dispatch事件以手動觸發
 
 jobs:
   build:
