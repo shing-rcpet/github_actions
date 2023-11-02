@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2.4
+        uses: actions/checkout@vlatest
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v2
