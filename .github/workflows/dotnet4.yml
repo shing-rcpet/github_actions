@@ -68,4 +68,4 @@ jobs:
           command: sudo systemctl restart github_actions.service; cd /home/project/example/deploy; ls -l
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
