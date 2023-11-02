@@ -8,7 +8,7 @@ namespace github_actions.Controllers
     {
         private static readonly string[] Summaries = new[]
         {
-        "冰封的", "清新的", "寒冷的", "凉爽的", "温和的", "温暖的", "温和宜人的", "酷热的", "酷热难耐的", "灼热的"
+        "冰封的", "清新的", "寒冷的", "涼爽的", "溫和的", "溫暖的", "溫和宜人的", "酷熱的", "酷熱難耐的", "灼熱的"
     };
 
         private readonly ILogger<WeatherForecastController> _logger;
