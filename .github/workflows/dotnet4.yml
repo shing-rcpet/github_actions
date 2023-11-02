@@ -3,11 +3,11 @@ name: ASP.NET Core 7.0 Example build and deploy
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
-  #workflow_dispatch:  # 添加workflow_dispatch事件以手動觸發
+      - master
+  workflow_dispatch:  # 添加workflow_dispatch事件以手動觸發
 
 jobs:
   build:
