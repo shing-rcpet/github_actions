@@ -63,7 +63,7 @@ jobs:
             #sudo systemctl stop github_actions.service  # 停止应用程序服务（如果有）
             #sudo systemctl start github_actions.service  # 启动应用程序服务（如果有）
       - name: Restart dotnet-example.service
-        uses: garygrossgarten/github-action-ssh@v1.0
+        uses: garygrossgarten/github-action-ssh@v0.6.3
         with:
           command: sudo systemctl restart github_actions.service; cd /home/project/example/deploy; ls -l
           host: ${{ secrets.REMOTE_HOST }}
