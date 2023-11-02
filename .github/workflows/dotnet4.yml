@@ -58,14 +58,11 @@ jobs:
             mv ./home/runner/work/github_actions/github_actions/github_actions/deploy/* ./deploy/
             rm -f -r home
             rm -f deploy-package.zip
-            #systemctl --user stop github_actions.service
-            #systemctl --user start github_actions.service
-            #sudo systemctl stop github_actions.service  # 停止应用程序服务（如果有）
-            #sudo systemctl start github_actions.service  # 启动应用程序服务（如果有）
+
       - name: Restart dotnet-example.service
         uses: garygrossgarten/github-action-ssh@release
         with:
-          command: sudo systemctl restart github_actions.service; cd /home/project/example/deploy; ls -l
+          command: sudo systemctl stop github_actions.service;sudo systemctl start github_actions.service; cd /home/project/example/deploy; ls -l
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
           privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
