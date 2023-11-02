@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace github_actions.Controllers
 {
@@ -8,7 +8,7 @@ namespace github_actions.Controllers
     {
         private static readonly string[] Summaries = new[]
         {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+        "冰封的", "清新的", "寒冷的", "凉爽的", "温和的", "温暖的", "温和宜人的", "酷热的", "酷热难耐的", "灼热的"
     };
 
         private readonly ILogger<WeatherForecastController> _logger;
